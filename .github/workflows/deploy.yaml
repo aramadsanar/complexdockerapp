@@ -18,7 +18,7 @@ jobs:
       - run: docker build -t aramadsanar/multi-server ./servet
       - run: docker build -t aramadsanar/multi-worker ./worker
 
-      - run: docker push  aramadsanar/multi-client
-      - run: docker push  aramadsanar/multi-nginx
-      - run: docker push  aramadsanar/multi-server
-      - run: docker push  aramadsanar/multi-worker
+      - run: docker push aramadsanar/multi-client
+      - run: docker push aramadsanar/multi-nginx
+      - run: docker push aramadsanar/multi-server
+      - run: docker push aramadsanar/multi-worker
