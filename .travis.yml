@@ -1,0 +1,16 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t aramadsanar/client-tester -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true aramadsanar/client-tester npm run test
+
+after_build:
+  - docker build -t aramadsanar/multi-client ./client
+  - docker build -t aramadsanar/multi-nginx ./nginx
+  - docker build -t aramadsanar/multi-server ./servet
+  - docker build -t aramadsanar/multi-worker ./worker
